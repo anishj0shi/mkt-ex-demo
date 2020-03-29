@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+ <edmx:DataServices m:DataServiceVersion="2.0">
+  <Schema Namespace="API_MKT_CMPGN_SUCCESS_IMPORT_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+   <EntityType Name="Success" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="CampaignSuccessUUID"/>
+    </Key>
+    <Property Name="CampaignSuccessUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:heading="Assigned Campaign Success Data Key" sap:quickinfo="Key for Assigned Campaign Success Data" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>A unique key for campaign success data.</Summary>
+      <LongDescription>Each time you import success data through the Campaign Success Data API (API_MKT_CMPGN_SUCCESS_IMPORT), the system automatically generates a UUID and fills in this field.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Campaign UUID" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>A unique key for a SAP Marketing Cloud campaign.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="ID" sap:heading="Campaign ID" sap:quickinfo="Campaign ID" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>An ID of a campaign.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignCategoryID" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Category ID" sap:quickinfo="Campaign Category ID" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The category identifier of a campaign.  The value of the campaign category ID is pre-defined by customization.</Summary>
+      <LongDescription>The campaign category represents a group of campaigns that have similar attributes and can perform the same actions.  SAP Marketing Cloud delivers some standard campaign category IDs such as “A1” (Automated Campaign), “A3”(Trigger-Based Campaign), and more.  You can also add your own campaign category through customization.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="ExternalCampaignID" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Ext. Campaign ID" sap:heading="External Campaign ID" sap:quickinfo="External Campaign ID" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The ID of a campaign executed on an external platform assigned to the SAP Marketing Cloud campaign, not supported for campaign targets.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="ExternalCampaignName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Ext. Campaign Name" sap:heading="External Campaign Name" sap:quickinfo="External Campaign Name" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Name of the external campaign, not supported for campaign targets.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="Advertiser" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Advertiser ID" sap:heading="External Campaign Advertiser ID" sap:quickinfo="The Identifier of an Advertiser" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Advertiser ID of the external campaign. The advertiser ID is part of the semantical key of the external campaign, not supported for campaign targets.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="AdvertiserName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Advertiser Name" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Advertiser name of the external campaign, not supported for campaign targets.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="ExternalCmpgnManagingParty" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Managing Party" sap:heading="External Campaign Managing Party" sap:quickinfo="External Campaign Managing Party" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>ID of the party managing the external campaign. The party ID is part of the semantical key of the external campaign, not supported for campaign targets.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="ExternalCmpgnManagingPartyName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Managing Party Name" sap:heading="External Campaign Managing Party Name" sap:quickinfo="External Campaign Managing Party Name" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Indicates the external campaign managing party name.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CommunicationMedium" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Communication Medium" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>This is a path or channel used for communication or through which an interaction happened.</Summary>
+      <LongDescription>Examples of communication media can be EMAIL, PHONE, WEB, and specific social media channels (to be changed!).You can configure communication media in the configuration activity Manage Interaction Content.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="SuccessDataDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Date" sap:heading="Campaign Performance Date" sap:quickinfo="Date of Campaign Performance Data" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Date the campaign performance measures refer to.</Summary>
+      <LongDescription>Example: 2017-08-03T00:00:00</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="SuccessDataDateTimeZone" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Timezone" sap:heading="Time Zone of Success Data" sap:quickinfo="Time Zone of Success Data" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Time zone of success data date.</Summary>
+      <LongDescription>Valid values can be found in the SAP time zone table. The time zone information is customizable through customizing activities.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="YearWeek" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Year Week" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Year and week the campaign performance measures refer to.</Summary>
+      <LongDescription>Example:  199102  (the second week of year 1991)</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="YearMonth" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="Year Month" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Year and month the campaign performance measures refer to.</Summary>
+      <LongDescription>Example:  201702  (the second month of year 2017)</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="AdServingSpendAmount" Type="Edm.Decimal" Nullable="false" Precision="32" Scale="3" sap:unicode="false" sap:label="Spend Amount" sap:heading="Ad Serving Spend Amount" sap:quickinfo="Ad Serving Spend Amount" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Amount spent for ad serving, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="SuggestedAdServingSpendAmount" Type="Edm.Decimal" Nullable="false" Precision="32" Scale="3" sap:unicode="false" sap:label="Suggested Spend" sap:heading="Suggested Ad Serving Spend Amount" sap:quickinfo="Suggested Ad Serving Spend Amount" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Suggested ad serving spend amount for an optimized campaign, typically used with SAP Customer Attribution integration, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="AdServingSpendAmtCrcyISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Spend Currency" sap:heading="ISO" sap:quickinfo="ISO Currency Code" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code">
+     <Documentation>
+      <Summary>Amount spent for ad serving, summed up when aggregated.</Summary>
+      <LongDescription>The currency ISO code list is customizable and the input value should come from the value list.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="AgeRangeLowerLimit" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Age Range Low" sap:heading="Lower Limit of Age Range" sap:quickinfo="Lower Limit of Age Range" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The age range that the campaign performance measures refer to.</Summary>
+      <LongDescription>If the related campaign is targeting people in a certain age group, enter the lower limit of the age range.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="AgeRangeUpperLimit" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Age Range High" sap:heading="Upper Limit of Age Range" sap:quickinfo="Upper Limit of Age Range" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The age range that the campaign performance measures refer to.</Summary>
+      <LongDescription>If the related campaign is targeting people in a certain age group, enter the higher limit of the age range.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="GenderFreeText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Gender" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>A free text field that specifies the gender of a contact.</Summary>
+      <LongDescription>This field contains user-definable gender names.User-defined entries must be mapped to SAP internal keys in the Map Free Texts app.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="CountryFreeText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Country" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Country code of the campaign performance measures.</Summary>
+      <LongDescription>The mapping of external values to internal codes is maintained with the Map Free Texts app.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="RegionFreeText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Region" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Region code of the campaign performance measures.</Summary>
+      <LongDescription>The mapping of external values to internal codes is maintained with the Map Free Texts app.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="InteractionStatus" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Interaction Status" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Status code of the interaction the campaign performance measures refer to, not supported for campaign targets.</Summary>
+      <LongDescription>Mainly used for measures related to business documents such as leads or sales orders to provide a status of the business document.Possible values are: 01 In Process, 02 Released, 03 Completed, 04 Cancelled, 05 Converted, 06 Successful, 07 Unsuccessful, 00 New.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="InteractionReason" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Interaction Reason" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The interaction reason code that the campaign performance measures refer to, not supported for campaign targets.</Summary>
+      <LongDescription>Mainly provides failure reasons for SAP Marketing Cloud internally executed campaigns such as a failed marketing permission check. Possible values can be looked up and maintained with the Manage Your Solution app.If the interaction type is Appointment, the interaction reason could be Customer_Required, Meeting, and more.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="InteractionType" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Interaction Type" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Interaction types define how contacts interact with your company.</Summary>
+      <LongDescription>Interactions have a direction, inbound or outbound (from contact to system or from system to contact). Additionally, they can have a reason, for example Mailbox is full for the interaction type Soft Bounce.Example: APPOINTMENT_CANCELLDExamples of types of interaction can be website visits, social media posts, likes, web downloads, abandoned shopping carts, or survey responses.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignContent" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Campaign Content ID" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>ID of the related campaign.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignContentName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Content Name" sap:heading="Campaign Content Name" sap:quickinfo="Campaign Content Name" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Name of the campaign content that the campaign performance measures refer to.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignContentLinkName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Content Link Name" sap:heading="Campaign Content Link Name" sap:quickinfo="Campaign Content Link Name" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Name of the link in the campaign content that the campaign performance measures refer to.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignContentLinkAliasName" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Link Alias" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Alias name of the link in the campaign content that the campaign performance measures refer to.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="DeviceFreeText" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Device" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>This field contains the name of the device used in this interaction.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="AdNetworkFreeText" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Ad Network" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Ad network code of the campaign performance measures.</Summary>
+      <LongDescription>The mapping of external values to internal codes is maintained with the Map Free Texts app.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="PaidSearchKeywordText" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Baidu Paid Search Key Word" sap:quickinfo="Baidu Paid Search Key Word Text" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The keyword of a paid search campaign that the campaign performance measures refer to. In standard processes, it is only used for Baidu campaigns.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="PaidSearchSearchTermText" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Baidu Paid Search Search Term" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The search term of a paid search campaign that the campaign performance measures refer to. In standard processes, it is only used for Baidu campaigns.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignReach" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Reach" sap:quickinfo="Reach - Number of Unique Users Who Saw the Ad" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The number of unique users who saw the ad.</Summary>
+      <LongDescription>Reach is a people centric measure. It is summed up when aggregated. Be careful to combine it with non-person related dimensions, such as time, when importing data as this leads to wrong aggregated values. A combination of people related dimensions, such as gender, is accepted.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="CampaignReachInPercent" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unicode="false" sap:label="Reach in Percent" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>The percentage of unique users who saw the ad.</Summary>
+      <LongDescription>Reach as a percentage is a people centric measure. It is summed up when aggregated. Be careful to combine it with non-person related dimensions, such as time, when importing data as this leads to wrong aggregated values. A combination of people related dimensions, such as gender, is accepted.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfImpressions" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Impressions" sap:heading="Number of Impressions" sap:quickinfo="Impressions - Number of Times Ad Was Shown to a User" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of impressions, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfClicks" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Clicks" sap:heading="Number of Clicks" sap:quickinfo="Number of Clicks" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of clicks, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfUniqueClicks" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Unique Clicks" sap:heading="Number of Unique Clicks" sap:quickinfo="Number of Unique Clicks" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of unique clicks, the number of different people that clicked an ad.</Summary>
+      <LongDescription>For campaigns executed in SAP Marketing Cloud, the number of unique clicks is per content (and not per link in the content or per campaign). It is summed up when aggregated and it is a people centric measure. Be careful to combine it with non-person related dimensions, such as time, when importing data as this leads to wrong aggregated values. A combination of people related dimensions, such as gender, is accepted.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfPageLikes" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Page Likes" sap:heading="Number of Page Likes" sap:quickinfo="Number of Page Likes" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of page likes as a result of the campaign, typically used for Facebook campaigns, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfPostEngagements" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Page Post Eng." sap:heading="Number of Page Post Engagements" sap:quickinfo="Number of Page Post Engagements" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of engagements with a page post, typically used with Facebook campaigns, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfOfferClaims" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Offer Claims" sap:heading="Number of Offer Claims" sap:quickinfo="Number of Claims on Offers" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of claims on offers.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfVideoViews" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Video Views" sap:heading="Number of Video Views" sap:quickinfo="Number of Video Views" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of video views, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfWebsiteConversions" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Website Conversions" sap:heading="Number of Website Conversions" sap:quickinfo="Number of Website Conversions" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of website conversions attributed to the campaign, typically used for Facebook campaigns, which are summed up when aggregated. For other scenarios there are dedicated measures for the different types of conversions such as number of orders or number of registrations.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfAppInstalls" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="App Installs" sap:heading="Number of App Installs" sap:quickinfo="Number of Times App Was Installed" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of app installs attributed to the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfAppEngagements" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="App Engagements" sap:heading="Number of App Engagements" sap:quickinfo="Number of App Engagements" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of engagements with a page post, typically used with Facebook campaigns, summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfEventResponses" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Event Responses" sap:heading="Number of Event Responses" sap:quickinfo="Number of Event Responses" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of event responses, typically used with Facebook campaigns, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfRejectedMessages" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Rejected Messages" sap:heading="Number of Rejected Messages" sap:quickinfo="Number of Rejected Messages" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of rejected messages, which are summed up when aggregated.</Summary>
+      <LongDescription>For campaigns executed in SAP Marketing Cloud, this is the number of messages that have been sent successfully to an external platform, but that have been rejected for any reason by this platform without being counted as hard or soft bounces.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfSentMessages" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Sent Messages" sap:heading="Number of Sent Messages" sap:quickinfo="Number of Sent Messages" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of messages sent by the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription>The type of message, such as email or SMS, is usually given by the communication medium.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfDeliveredMessages" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Delivered Messages" sap:heading="Number of Delivered Messages" sap:quickinfo="Number of Delivered Messages" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of messages successfully delivered by the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription>For campaigns executed in SAP Marketing Cloud, delivered messages = sent messages - hard and soft bounces - rejected messages.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfOpenedMessages" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Opened Messages" sap:heading="Number of Opened Messages" sap:quickinfo="Number of Opened Messages" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of opened messages, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfHardBounces" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Hard Bounces" sap:heading="Number of Hard Bounces" sap:quickinfo="Number of Hard Bounces" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of hard bounces for sent messages, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfSoftBounces" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Soft Bounces" sap:heading="Number of Soft Bounces" sap:quickinfo="Number of Soft Bounces" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of soft bounces for sent messages, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfOrders" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Number of Orders" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of orders attributed to the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="OrderAmount" Type="Edm.Decimal" Nullable="false" Precision="32" Scale="3" sap:unicode="false" sap:label="Order Amount" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Order amount attributed to the campaign, which is summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="MultiTouchAttributedOrderAmt" Type="Edm.Decimal" Nullable="false" Precision="32" Scale="3" sap:unicode="false" sap:label="Multi Touch Ord Amt" sap:heading="Multi Touch Attributed Order Amount" sap:quickinfo="Multi Touch Attributed Order Amount" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Order amount attributed to the campaign using multi touch attribution, which is summed up when aggregated. This is typically used with the SAP Customer Attribution integration.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="ProjectedOrderAmount" Type="Edm.Decimal" Nullable="false" Precision="32" Scale="3" sap:unicode="false" sap:label="Projected Order Amt" sap:heading="Projected Order Amount" sap:quickinfo="Projected Order Amount" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Projected order amount that could have been achieved with an optimized campaign, which is summed up when aggregated. This is typically used with SAP Customer Attribution integration.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="OrderAmountCurrencyISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Order Currency" sap:heading="ISO" sap:quickinfo="ISO Currency Code" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code">
+     <Documentation>
+      <Summary>Amount spent for ad serving, summed up when aggregated.</Summary>
+      <LongDescription>The currency ISO code list is customizable and the input value should come from the value list.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NrOfMultiTchAttrCnvrsns" Type="Edm.Decimal" Nullable="false" Precision="19" Scale="9" sap:unicode="false" sap:label="Multi Touch Cnvrsns" sap:heading="Number of Multi Touch Attributed Conversions" sap:quickinfo="Number of Multi Touch Attributed Conversions" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of conversions attributed to the campaign using multi touch attribution,which are summed up when aggregated. This is typically used with the SAP Customer Attribution integration.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="ProjectedNumberOfConversions" Type="Edm.Decimal" Nullable="false" Precision="19" Scale="9" sap:unicode="false" sap:label="Projected Cnvrsns" sap:heading="Projected Number of Conversions" sap:quickinfo="Projected Number of Conversions" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Projected number of conversions that could have been achieved with an optimized campaign, which is summed up when aggregated. This is typically used with SAP Customer Attribution integration.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfRegistrations" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Registrations" sap:heading="Number of Registrations" sap:quickinfo="Number of Registrations" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of registrations attributed to the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfDownloads" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Downloads" sap:heading="Number of Downloads" sap:quickinfo="Number of Downloads" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of downloads attributed to the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="VideoViewedAverageInPercent" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2" sap:unicode="false" sap:label="Per. Video Viewed" sap:heading="Average Percentage of Video Viewed" sap:quickinfo="Average Percentage of Video Viewed" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Average percentage of video views, which are aggregated as the average and weighted by the number of video views.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="GrossRatingPoints" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="2" sap:unicode="false" sap:label="Gross Rating Points" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Gross rating points, which are summed up when aggregated.</Summary>
+      <LongDescription> Be aware that an aggregation of gross rating points with a different gross rating point base doesn't make sense but technically is not prevented.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="GrossRatingPointBase" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="GRP Base" sap:heading="Gross Rating Point Base" sap:quickinfo="Gross Rating Point Base" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Base that the gross rating points measure refers to. It typically contains a custom string that describes the audience the gross rating points are related to. It is not supported for campaign targets.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfLeads" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="No. of Leads" sap:heading="Number of Leads" sap:quickinfo="Number of Leads" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of leads created as a result of the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfOpportunities" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="No. of Opportunities" sap:heading="Number of Opportunities" sap:quickinfo="Number of Opportunities" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of opportunities created as a result of the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="OpportunityAmount" Type="Edm.Decimal" Nullable="false" Precision="32" Scale="3" sap:unicode="false" sap:label="Opportunity Amount" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Opportunity amount attributed to the campaign, which is summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="OpportunityAmountCrcyISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Opportunity Currency" sap:heading="ISO" sap:quickinfo="ISO Currency Code" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code">
+     <Documentation>
+      <Summary>Amount spent for ad serving, summed up when aggregated.</Summary>
+      <LongDescription>The currency ISO code list is customizable and the input value should come from the value list.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfPhoneCalls" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Phone Calls" sap:heading="Number of Phone Calls" sap:quickinfo="Number of Phone Calls" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of phone calls triggered as a result of the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfAppointments" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Appointments" sap:heading="Number of Appointments" sap:quickinfo="Number of Appointments" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="NumberOfFailedInteractions" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Failed Interactions" sap:heading="Number of Failed Interactions" sap:quickinfo="Number of Failed Interactions" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of failed interactions, which are summed up when aggregated.</Summary>
+      <LongDescription>For campaigns executed in SAP Marketing Cloud, this is the number of interactions that have been triggered but could not be executed for various reasons such as missing marketing permissions.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfMarketingOfferViews" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Offer Views" sap:heading="Number of Offer Views" sap:quickinfo="Number of Offer Views" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of offer views as a result of the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfEmailComplaints" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Email Complaints" sap:heading="Number of Email Complaints" sap:quickinfo="Number of Email Complaints" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of email complaints and the number of times a mail sent by the campaign was marked as spam, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NmbrOfOpenChannelInteractions" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Open Channel Interac" sap:heading="Number of Open Channel Interactions" sap:quickinfo="Number of Open Channel Interactions" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of open channel interactions, which are summed up when aggregated.</Summary>
+      <LongDescription>They are used for campaigns executed in SAP Marketing Cloud that include custom actions that were implemented using the open channel.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfExecutedInteractions" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Executed Interact." sap:heading="Number of Executed Interactions" sap:quickinfo="Number of Executed Interactions" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of interactions executed by the SAP Marketing Cloud campaign, which are summed up when aggregated.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="NumberOfTasks" Type="Edm.Int64" Nullable="false" sap:unicode="false" sap:label="Tasks" sap:heading="Number of Tasks" sap:quickinfo="Number of Tasks" sap:updatable="false" sap:sortable="false" sap:filterable="false">
+     <Documentation>
+      <Summary>Number of tasks triggered as a result of the campaign, which are summed up when aggregated.</Summary>
+      <LongDescription>Tasks are usually created in a connected CRM system.</LongDescription>
+     </Documentation>
+    </Property>
+   </EntityType>
+   <EntityContainer Name="API_MKT_CMPGN_SUCCESS_IMPORT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+    <EntitySet Name="Successes" EntityType="API_MKT_CMPGN_SUCCESS_IMPORT_SRV.Success" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+   </EntityContainer>
+   <atom:link rel="self" href="https://host:port/sap/opu/odata/sap/API_MKT_CMPGN_SUCCESS_IMPORT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+   <atom:link rel="latest-version" href="https://host:port/sap/opu/odata/sap/API_MKT_CMPGN_SUCCESS_IMPORT_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+  </Schema>
+ </edmx:DataServices>
+</edmx:Edmx>

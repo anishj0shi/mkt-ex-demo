@@ -1,0 +1,60 @@
+# Created on 2020-03-28T21:25:35.930
+OpenJDK 64-Bit Server VM warning: Ignoring option MaxPermSize; support was removed in 8.0
+
+# Created on 2020-03-28T21:25:37.364
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+
+# Created on 2020-03-28T21:25:37.364
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+
+# Created on 2020-03-28T21:25:37.364
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+
+# Created on 2020-03-28T21:25:37.364
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+# Created on 2020-03-28T21:25:37.365
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+
+# Created on 2020-03-28T21:25:37.366
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:513)
+
+# Created on 2020-03-28T21:25:37.366
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:525)
+
+# Created on 2020-03-28T21:25:37.367
+Caused by: java.lang.RuntimeException: Class java/util/UUID could not be instrumented.
+
+# Created on 2020-03-28T21:25:37.367
+	at org.jacoco.agent.rt.internal_8ff85ea.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:140)
+
+# Created on 2020-03-28T21:25:37.367
+	at org.jacoco.agent.rt.internal_8ff85ea.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:101)
+
+# Created on 2020-03-28T21:25:37.368
+	at org.jacoco.agent.rt.internal_8ff85ea.PreMain.createRuntime(PreMain.java:55)
+
+# Created on 2020-03-28T21:25:37.368
+	at org.jacoco.agent.rt.internal_8ff85ea.PreMain.premain(PreMain.java:47)
+
+# Created on 2020-03-28T21:25:37.368
+	... 6 more
+
+# Created on 2020-03-28T21:25:37.368
+Caused by: java.lang.NoSuchFieldException: $jacocoAccess
+
+# Created on 2020-03-28T21:25:37.368
+	at java.base/java.lang.Class.getField(Class.java:2000)
+
+# Created on 2020-03-28T21:25:37.369
+	at org.jacoco.agent.rt.internal_8ff85ea.core.runtime.ModifiedSystemClassRuntime.createFor(ModifiedSystemClassRuntime.java:138)
+
+# Created on 2020-03-28T21:25:37.369
+	... 9 more
+
+# Created on 2020-03-28T21:25:37.369
+*** java.lang.instrument ASSERTION FAILED ***: "result" with message agent load/premain call failed at JPLISAgent.c line: 422
+
+# Created on 2020-03-28T21:25:37.369
+/bin/sh: line 1:  5873 Abort trap: 6           /usr/local/Cellar/openjdk/13.0.2+8_2/libexec/openjdk.jdk/Contents/Home/bin/java -javaagent:/Users/i322872/.m2/repository/org/jacoco/org.jacoco.agent/0.7.9/org.jacoco.agent-0.7.9-runtime.jar=destfile=/Users/i322872/Developer/experiments/java/mkt-ex-demo/unit-tests/target/coverage-reports/jacoco.exec -Xmx1024m -XX:MaxPermSize=512m -Dorg.slf4j.simpleLogger.defaultLogLevel=warn -Djava.io.tmpdir=target/arquillian-working-dir/1/ -jar /Users/i322872/Developer/experiments/java/mkt-ex-demo/unit-tests/target/surefire/surefirebooter7756261793703115356.jar /Users/i322872/Developer/experiments/java/mkt-ex-demo/unit-tests/target/surefire 2020-03-28T21-25-35_705-jvmRun1 surefire3030760393629401702tmp surefire_06039686454295233748tmp
+

@@ -1,0 +1,10 @@
+logging:
+  file: out.log
+  level:
+    com.sap.demo: DEBUG
+    com.sap.cloud.sdk: INFO
+    root: WARN
+    org.apache.http.wire: DEBUG
+
+server:
+  port: 8080

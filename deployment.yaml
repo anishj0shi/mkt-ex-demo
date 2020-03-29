@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mkt-ex-demo
+  labels:
+    application: mkt-ex-demo
+  annotations:
+    auth.istio.io/8080: NONE
+spec:
+  ports:
+  - name: http
+    port: 8080
+  type: NodePort
+  selector:
+    application: mkt-ex-demo
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mkt-ex-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        application: mkt-ex-demo
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - image: acjoshi/mkt-ex
+        imagePullPolicy: Always
+        name: mkt-ex-demo
+        env:
+        - name: AUTH_CODE 
+          value: 04febce09e2690b508cae901a42c1cefb93383ce
+        ports:
+        - name: http
+          containerPort: 8080
+---
+apiVersion: gateway.kyma-project.io/v1alpha2
+kind: Api
+metadata:
+  name: mkt-ex-demo
+spec:
+  hostname: mkt-ex
+  service:
+    name: mkt-ex-demo
+    port: 8080

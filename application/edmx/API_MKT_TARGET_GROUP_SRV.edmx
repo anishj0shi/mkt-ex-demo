@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+ <edmx:DataServices m:DataServiceVersion="2.0">
+  <Schema Namespace="API_MKT_TARGET_GROUP_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+   <EntityType Name="TargetGroupEntityType" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="TargetGroupUUID"/>
+    </Key>
+    <Property Name="TargetGroupUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:heading="Universally Unique Identifier" sap:quickinfo="UUID for API-Service" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>The API UUID indentifies a specific entity type instance.</Summary>
+      <LongDescription>The UUID is used to identify an entity type instance in the system. This must be provided when updating or deleting entity type instances.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroup" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Target Group" sap:heading="Target Grp" sap:quickinfo="Target Group ID" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group ID. The taget group ID is 10-digit in length.</Summary>
+      <LongDescription>To hold the value of target Group ID.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:heading="Target Group Name" sap:quickinfo="Target Group Name" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group name. It can be any valid set of characters.</Summary>
+      <LongDescription>For example: Test_target_group.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupDescription" Type="Edm.String" Nullable="false" MaxLength="1000" sap:unicode="false" sap:label="Description" sap:quickinfo="Target Group Description" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group description. It can be any valid set of characters.</Summary>
+      <LongDescription>For example: Test_target_group_description.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupLifeCycleStatus" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Status" sap:quickinfo="Target Group Life Cycle Status" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group LifeCycle status. It can be any valid lifecycle status that is defined in the marketing system.</Summary>
+      <LongDescription>For example: Target Group Life Cycle Status.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupMemberCount" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Member Count" sap:quickinfo="Target Group Member Count" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group member count. It must be an integer.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="ChangedOnDateTime" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Last Change Date Time" sap:quickinfo="Last Change Date Time for API-Service" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>This is the date on which the object data was last changed.</Summary>
+      <LongDescription>This field contains the timestamp indicating when object data was last changed.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="LastChangedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Last Changed By User" sap:quickinfo="Last Changed By User for API-Service" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>This is the name of the user who last changed the contact data.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CreationDateTime" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Creation Date Time" sap:quickinfo="Creation Date Time for API-Service" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>This is the timestamp indicating when the contact was created.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="CreatedByUser" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Created By User" sap:quickinfo="Created By User for API-Service" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the User ID of the API service creator.</Summary>
+      <LongDescription>To hold the value of the created by user's ID of a campaign.User ID of the user.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupMainResponsible" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Owner" sap:quickinfo="Target Group Owner" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group owner. It can be any valid set of characters.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupMemberType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Member Type" sap:quickinfo="Target Group Member Type" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group Member type.</Summary>
+      <LongDescription>It can be any valid member type defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupMemberTypeName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Member Type Name" sap:quickinfo=" Name of Target Group Member Type" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the name of the Target Group member type.</Summary>
+      <LongDescription>Any valid member type name, defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupOrigin" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Origin" sap:heading="Target Group Origin" sap:quickinfo="Origin of a Target Group" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the origin of a Target Group. It can be any valid origin defined in the marketing system.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupOriginName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Origin Name" sap:quickinfo="Target Group Origin Name" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group origin name.</Summary>
+      <LongDescription>Any valid origin name defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="IsTargetGroupVersioningActive" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Versioning" sap:quickinfo="Enable/Disable Versioning" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>With the standard delivery, versioning is automatically enabled for target groups created in Segmentation. If you do not want to use versioning, deselect this indicator.</Summary>
+      <LongDescription>Note that if you deselect this indicator, you can still enable versioning for target groups by choosing the appropriate icon on the user interface.This setting does not control the appearance of the button 'Rebuild' within the target group details.If versioning is active, upon rebuilding, the system versionizes the joining and leaving target group members.If versioning is inactive, the current target group members are discarded and re-determined from scratch.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupVersion" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Version" sap:quickinfo="Version of Target Group" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the version of the Target Group.</Summary>
+      <LongDescription>Any valid version defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupLastRebuildDateTime" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Last Rebuilt At" sap:quickinfo="Target Group Last Rebuilt At" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group's last rebuild date and time stamp.</Summary>
+      <LongDescription>Indicates the rebuild time stamp of a Target Group.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupCategory" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Category" sap:heading="Target Group Category" sap:quickinfo="Categories of Target Groups" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>With the standard delivery, target groups are automatically dynamic when created in Segmentation. If you do not want to use dynamic target groups, deselect this indicator.</Summary>
+      <LongDescription>Note that if you deselect this indicator, you can still set target groups created in Segmentation to dynamic directly on the user interface, by choosing the appropriate icon.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupCategoryName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Category Name" sap:quickinfo="Name of Target Group Category" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the name of the Target Group category.</Summary>
+      <LongDescription>Any valid category name defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupIsControlGroup" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Is Control Group" sap:quickinfo="Indicates if the target group is a control group" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>A ControlGroup can have multiple target groups assigned to it. A Target Group can be assigned to one Control Group only.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupControlGroup" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Control Group ID" sap:quickinfo="Control Group ID of the Target Group" sap:creatable="false" sap:updatable="false"/>
+    <Property Name="MarketingArea" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Marketing Area ID" sap:updatable="false">
+     <Documentation>
+      <Summary>This field contains the ID of a marketing area.</Summary>
+      <LongDescription>The marketing area represents an authorization concept in which data access can optionally be controlled based on the responsibilities of the user. Marketing areas can be used to restrict access to instances of an object, such as campaigns, email messages, email  templates, or target groups.Examples of marketing areas are organizational units, product lines, brands, geographical regions, or any other organizational entity.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="MarketingAreaName" Type="Edm.String" Nullable="false" MaxLength="120" sap:unicode="false" sap:label="Marketing Area" sap:heading="Marketing Area Description" sap:quickinfo="Description for Marketing Area" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>The name of the marketing area. For example, Global Marketing Area.</Summary>
+      <LongDescription/>
+     </Documentation>
+    </Property>
+    <Property Name="SegmentationObject" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Segm. Object" sap:heading="Segmentation Object" sap:quickinfo="Segmentation Object" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Comprises setup information for segmentation and follow-up actions</Summary>
+      <LongDescription>The segmentation object collects the data sources that define the attribute universe of the segmentation application and follow-up objects, for example, the export definition, or the campaign content in SAP Marketing.In addition, the segmentation object keys are defined in the segmentation object. Follow-up objects, such as the target group in SAP Marketing, can use the segmentation object as process object.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="SegmentationObjectName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Segmentation Object Name" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the segmentation object name.</Summary>
+      <LongDescription>Any valid segmentation object name.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupType" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Type" sap:quickinfo="Target Group Type" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the Target Group type.</Summary>
+      <LongDescription>Any valid target group type defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupTypeName" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Type Name" sap:heading="Target Group Type Name" sap:quickinfo="Name of the Target Group Type" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the name of the target group type.</Summary>
+      <LongDescription>Any valid target group type name defined in the marketing system.</LongDescription>
+     </Documentation>
+    </Property>
+    <NavigationProperty Name="TargetGroupInteractionContacts" Relationship="API_MKT_TARGET_GROUP_SRV.TargetGroupToInteractionContact" FromRole="FromRole_TargetGroupToInteractionContact" ToRole="ToRole_TargetGroupToInteractionContact"/>
+   </EntityType>
+   <EntityType Name="TargetGroupInteractionContactEntityType" sap:content-version="1">
+    <Key>
+     <PropertyRef Name="TargetGroupMemberUUID"/>
+    </Key>
+    <Property Name="TargetGroupMemberUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID" sap:heading="Universally Unique Identifier" sap:quickinfo="UUID for API-Service" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>The API UUID indentifies a specific entity type instance.</Summary>
+      <LongDescription>The UUID is used to identify an entity type instance in the system. This must be provided when updating or deleting entity type instances.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="InteractionContactUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Contact UUID" sap:heading="Interaction Contact Universally Unique Identifier" sap:quickinfo="Interaction Contact UUID for API-Service" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the interaction contact UUID. It can be any valid GUUID.</Summary>
+      <LongDescription>Any valid 32-character GUUID like 00000000-0000-0000-0000-000000000000.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="TargetGroupUUID" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Target Group UUID" sap:quickinfo="Technical Key of Target Group" sap:creatable="false" sap:updatable="false">
+     <Documentation>
+      <Summary>Indicates the technical key of a Target Group.</Summary>
+      <LongDescription>To hold the value of target group UUID.32-bit unique key. For example: 1c98ec17-ac45-1ed7-a7c0-1c8c7b9199ad.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="InteractionContactId" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="External Contact ID" sap:heading="Ext. Interaction Contact Data ID" sap:quickinfo="External ID of Interaction Contact Data" sap:updatable="false">
+     <Documentation>
+      <Summary>This is the external ID of an interaction contact.</Summary>
+      <LongDescription>This is the main ID of a contact or corporate account in an external system or origin.Examples of external IDs are a SAP CRM ID, a Facebook ID, or the contact's ID in a Web Shop.</LongDescription>
+     </Documentation>
+    </Property>
+    <Property Name="InteractionContactOrigin" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Origin of Contact" sap:heading="Origin of Interaction Contact" sap:quickinfo="Origin of Interaction Contact Data" sap:updatable="false">
+     <Documentation>
+      <Summary>The origin of an interaction contact ID indicates the source of an ID, in other words, where it originated.</Summary>
+      <LongDescription>The origin could be the source system from which an ID derived, such as SAP CRM, or it can indicate the type of ID in question, such as email or mobile phone.You can set up the origins you want to use in the configuration app Origin of Contact IDs or in the Customizing activity Define Origins of Contact IDs.</LongDescription>
+     </Documentation>
+    </Property>
+   </EntityType>
+   <ComplexType Name="TextCT">
+    <Property Name="LatestVersion" Type="Edm.Int32" Nullable="false" sap:label="Latest Version" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+    <Property Name="Text" Type="Edm.String" Nullable="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+   </ComplexType>
+   <Association Name="TargetGroupToInteractionContact" sap:content-version="1">
+    <End Type="API_MKT_TARGET_GROUP_SRV.TargetGroupEntityType" Multiplicity="1" Role="FromRole_TargetGroupToInteractionContact"/>
+    <End Type="API_MKT_TARGET_GROUP_SRV.TargetGroupInteractionContactEntityType" Multiplicity="*" Role="ToRole_TargetGroupToInteractionContact"/>
+    <ReferentialConstraint>
+     <Principal Role="FromRole_TargetGroupToInteractionContact">
+      <PropertyRef Name="TargetGroupUUID"/>
+     </Principal>
+     <Dependent Role="ToRole_TargetGroupToInteractionContact">
+      <PropertyRef Name="TargetGroupUUID"/>
+     </Dependent>
+    </ReferentialConstraint>
+   </Association>
+   <EntityContainer Name="API_MKT_TARGET_GROUP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+    <EntitySet Name="TargetGroups" EntityType="API_MKT_TARGET_GROUP_SRV.TargetGroupEntityType" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+    <EntitySet Name="TargetGroupInteractionContacts" EntityType="API_MKT_TARGET_GROUP_SRV.TargetGroupInteractionContactEntityType" sap:updatable="false" sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/>
+    <AssociationSet Name="TargetGroupToInteractionContactSet" Association="API_MKT_TARGET_GROUP_SRV.TargetGroupToInteractionContact" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+     <End EntitySet="TargetGroups" Role="FromRole_TargetGroupToInteractionContact"/>
+     <End EntitySet="TargetGroupInteractionContacts" Role="ToRole_TargetGroupToInteractionContact"/>
+    </AssociationSet>
+    <FunctionImport Name="RebuildTargetGroup" ReturnType="API_MKT_TARGET_GROUP_SRV.TextCT" m:HttpMethod="POST">
+     <Parameter Name="TargetGroupUUID" Type="Edm.Guid" Mode="In">
+      <Documentation>
+       <Summary>UUID</Summary>
+       <LongDescription/>
+      </Documentation>
+     </Parameter>
+    </FunctionImport>
+   </EntityContainer>
+   <atom:link rel="self" href="https://host:port/sap/opu/odata/sap/API_MKT_TARGET_GROUP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+   <atom:link rel="latest-version" href="https://host:port/sap/opu/odata/sap/API_MKT_TARGET_GROUP_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+  </Schema>
+ </edmx:DataServices>
+</edmx:Edmx>
