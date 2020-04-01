@@ -2,11 +2,14 @@ package com.sap.demo.process;
 
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.slf4j.Logger;
 
-import com.google.common.primitives.Longs;
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
 import com.sap.demo.vdm.namespaces.mktcampaignsrv.Campaign;
 import com.sap.demo.vdm.namespaces.mktcmpgnsuccessimportsrv.Success;
@@ -21,6 +24,8 @@ public class CampaignProcessExecutor {
 	private ConcurrentHashMap<String, CampaignProcess> map = new ConcurrentHashMap<>();
 	private APIMKTCAMPAIGNSRVService cpgService = new DefaultAPIMKTCAMPAIGNSRVService();
 	private APIMKTCMPGNSUCCESSIMPORTSRVService successService = new DefaultAPIMKTCMPGNSUCCESSIMPORTSRVService();
+
+	private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 	private static CampaignProcessExecutor instance = new CampaignProcessExecutor();
 
@@ -53,6 +58,25 @@ public class CampaignProcessExecutor {
 		return this.map.keys();
 	}
 
+	public void executeAsync() {
+		scheduler.scheduleAtFixedRate(() -> {
+			log.info("Polling Success Metrics...");
+			if(!this.map.isEmpty()) {
+				log.info("Entries Found for Execution, Processing Campaign..");
+				this.map.forEachKey(1, (campaignId) -> {
+					try {
+						this.execute(campaignId);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
+				log.info("Processing Finished....");
+			}
+			log.info("Iteration of polling Finished.");
+		}, 1, 10, TimeUnit.SECONDS);
+
+	}
+
 	public void execute(String campaignId) throws Exception {
 		Campaign campaign = getCampaignDetails(campaignId);
 		uploadSuccessForCampaign(campaign);
@@ -76,10 +100,15 @@ public class CampaignProcessExecutor {
 
 	public void uploadSuccessForCampaign(Campaign campaign) throws Exception {
 		Success success = Success.builder().campaignID(campaign.getCampaignID())
-				.campaignUUID(campaign.getCampaignUUID()).numberOfImpressions(Longs.tryParse("12"))
-				.numberOfClicks(Longs.tryParse("4")).build();
+				.campaignUUID(campaign.getCampaignUUID()).numberOfImpressions(getRandomNumber(12))
+				.numberOfClicks(getRandomNumber(4)).build();
 		this.successService.createSuccess(success).execute();
 
+	}
+	
+	private Long getRandomNumber(int max) {
+		Random rnd = new Random();
+		return Long.valueOf(rnd.nextInt(max) + 1);
 	}
 
 }

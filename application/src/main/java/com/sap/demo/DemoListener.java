@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory;
 import com.sap.demo.models.TikTokTokenResponse;
+import com.sap.demo.process.CampaignProcessExecutor;
 import com.sap.demo.token.TiktokTokens;
 
 @Component
@@ -67,6 +68,8 @@ public class DemoListener implements ApplicationListener<ContextRefreshedEvent> 
 			refreshTikTokToken(TiktokTokens.getInstance().getRefreshToken());
 
 		}, 10, 45000, TimeUnit.SECONDS);
+		
+		CampaignProcessExecutor.getInstance().executeAsync();
 
 	}
 
